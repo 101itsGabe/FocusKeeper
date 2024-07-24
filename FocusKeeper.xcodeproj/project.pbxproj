@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BABD68BA2C51C80F00515895 /* FocusKeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD68B92C51C80F00515895 /* FocusKeeperApp.swift */; };
+		BABD68BC2C51C80F00515895 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD68BB2C51C80F00515895 /* ContentView.swift */; };
+		BABD68BE2C51C81100515895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BABD68BD2C51C81100515895 /* Assets.xcassets */; };
+		BABD68C12C51C81100515895 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BABD68C02C51C81100515895 /* Preview Assets.xcassets */; };
+		BABD68CC2C51C81100515895 /* FocusKeeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD68CB2C51C81100515895 /* FocusKeeperTests.swift */; };
+		BABD68D62C51C81100515895 /* FocusKeeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD68D52C51C81100515895 /* FocusKeeperUITests.swift */; };
+		BABD68D82C51C81100515895 /* FocusKeeperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD68D72C51C81100515895 /* FocusKeeperUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BABD68C82C51C81100515895 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BABD68AE2C51C80F00515895 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BABD68B52C51C80F00515895;
+			remoteInfo = FocusKeeper;
+		};
+		BABD68D22C51C81100515895 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BABD68AE2C51C80F00515895 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BABD68B52C51C80F00515895;
+			remoteInfo = FocusKeeper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BABD68B62C51C80F00515895 /* FocusKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABD68B92C51C80F00515895 /* FocusKeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusKeeperApp.swift; sourceTree = "<group>"; };
+		BABD68BB2C51C80F00515895 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BABD68BD2C51C81100515895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BABD68C02C51C81100515895 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BABD68C22C51C81100515895 /* FocusKeeper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FocusKeeper.entitlements; sourceTree = "<group>"; };
+		BABD68C72C51C81100515895 /* FocusKeeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FocusKeeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABD68CB2C51C81100515895 /* FocusKeeperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusKeeperTests.swift; sourceTree = "<group>"; };
+		BABD68D12C51C81100515895 /* FocusKeeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FocusKeeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABD68D52C51C81100515895 /* FocusKeeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusKeeperUITests.swift; sourceTree = "<group>"; };
+		BABD68D72C51C81100515895 /* FocusKeeperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusKeeperUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BABD68B32C51C80F00515895 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD68C42C51C81100515895 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD68CE2C51C81100515895 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BABD68AD2C51C80F00515895 = {
+			isa = PBXGroup;
+			children = (
+				BABD68B82C51C80F00515895 /* FocusKeeper */,
+				BABD68CA2C51C81100515895 /* FocusKeeperTests */,
+				BABD68D42C51C81100515895 /* FocusKeeperUITests */,
+				BABD68B72C51C80F00515895 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BABD68B72C51C80F00515895 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BABD68B62C51C80F00515895 /* FocusKeeper.app */,
+				BABD68C72C51C81100515895 /* FocusKeeperTests.xctest */,
+				BABD68D12C51C81100515895 /* FocusKeeperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BABD68B82C51C80F00515895 /* FocusKeeper */ = {
+			isa = PBXGroup;
+			children = (
+				BABD68B92C51C80F00515895 /* FocusKeeperApp.swift */,
+				BABD68BB2C51C80F00515895 /* ContentView.swift */,
+				BABD68BD2C51C81100515895 /* Assets.xcassets */,
+				BABD68C22C51C81100515895 /* FocusKeeper.entitlements */,
+				BABD68BF2C51C81100515895 /* Preview Content */,
+			);
+			path = FocusKeeper;
+			sourceTree = "<group>";
+		};
+		BABD68BF2C51C81100515895 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BABD68C02C51C81100515895 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BABD68CA2C51C81100515895 /* FocusKeeperTests */ = {
+			isa = PBXGroup;
+			children = (
+				BABD68CB2C51C81100515895 /* FocusKeeperTests.swift */,
+			);
+			path = FocusKeeperTests;
+			sourceTree = "<group>";
+		};
+		BABD68D42C51C81100515895 /* FocusKeeperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BABD68D52C51C81100515895 /* FocusKeeperUITests.swift */,
+				BABD68D72C51C81100515895 /* FocusKeeperUITestsLaunchTests.swift */,
+			);
+			path = FocusKeeperUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BABD68B52C51C80F00515895 /* FocusKeeper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BABD68DB2C51C81100515895 /* Build configuration list for PBXNativeTarget "FocusKeeper" */;
+			buildPhases = (
+				BABD68B22C51C80F00515895 /* Sources */,
+				BABD68B32C51C80F00515895 /* Frameworks */,
+				BABD68B42C51C80F00515895 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusKeeper;
+			productName = FocusKeeper;
+			productReference = BABD68B62C51C80F00515895 /* FocusKeeper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BABD68C62C51C81100515895 /* FocusKeeperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BABD68DE2C51C81100515895 /* Build configuration list for PBXNativeTarget "FocusKeeperTests" */;
+			buildPhases = (
+				BABD68C32C51C81100515895 /* Sources */,
+				BABD68C42C51C81100515895 /* Frameworks */,
+				BABD68C52C51C81100515895 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BABD68C92C51C81100515895 /* PBXTargetDependency */,
+			);
+			name = FocusKeeperTests;
+			productName = FocusKeeperTests;
+			productReference = BABD68C72C51C81100515895 /* FocusKeeperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BABD68D02C51C81100515895 /* FocusKeeperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BABD68E12C51C81100515895 /* Build configuration list for PBXNativeTarget "FocusKeeperUITests" */;
+			buildPhases = (
+				BABD68CD2C51C81100515895 /* Sources */,
+				BABD68CE2C51C81100515895 /* Frameworks */,
+				BABD68CF2C51C81100515895 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BABD68D32C51C81100515895 /* PBXTargetDependency */,
+			);
+			name = FocusKeeperUITests;
+			productName = FocusKeeperUITests;
+			productReference = BABD68D12C51C81100515895 /* FocusKeeperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BABD68AE2C51C80F00515895 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					BABD68B52C51C80F00515895 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					BABD68C62C51C81100515895 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = BABD68B52C51C80F00515895;
+					};
+					BABD68D02C51C81100515895 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = BABD68B52C51C80F00515895;
+					};
+				};
+			};
+			buildConfigurationList = BABD68B12C51C80F00515895 /* Build configuration list for PBXProject "FocusKeeper" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BABD68AD2C51C80F00515895;
+			productRefGroup = BABD68B72C51C80F00515895 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BABD68B52C51C80F00515895 /* FocusKeeper */,
+				BABD68C62C51C81100515895 /* FocusKeeperTests */,
+				BABD68D02C51C81100515895 /* FocusKeeperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BABD68B42C51C80F00515895 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BABD68C12C51C81100515895 /* Preview Assets.xcassets in Resources */,
+				BABD68BE2C51C81100515895 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD68C52C51C81100515895 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD68CF2C51C81100515895 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BABD68B22C51C80F00515895 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BABD68BC2C51C80F00515895 /* ContentView.swift in Sources */,
+				BABD68BA2C51C80F00515895 /* FocusKeeperApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD68C32C51C81100515895 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BABD68CC2C51C81100515895 /* FocusKeeperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABD68CD2C51C81100515895 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BABD68D62C51C81100515895 /* FocusKeeperUITests.swift in Sources */,
+				BABD68D82C51C81100515895 /* FocusKeeperUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BABD68C92C51C81100515895 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BABD68B52C51C80F00515895 /* FocusKeeper */;
+			targetProxy = BABD68C82C51C81100515895 /* PBXContainerItemProxy */;
+		};
+		BABD68D32C51C81100515895 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BABD68B52C51C80F00515895 /* FocusKeeper */;
+			targetProxy = BABD68D22C51C81100515895 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BABD68D92C51C81100515895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BABD68DA2C51C81100515895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		BABD68DC2C51C81100515895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FocusKeeper/FocusKeeper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FocusKeeper/Preview Content\"";
+				DEVELOPMENT_TEAM = P92FHBLRL4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manngabe.FocusKeeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BABD68DD2C51C81100515895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FocusKeeper/FocusKeeper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FocusKeeper/Preview Content\"";
+				DEVELOPMENT_TEAM = P92FHBLRL4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manngabe.FocusKeeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BABD68DF2C51C81100515895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92FHBLRL4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manngabe.FocusKeeperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FocusKeeper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FocusKeeper";
+			};
+			name = Debug;
+		};
+		BABD68E02C51C81100515895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92FHBLRL4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manngabe.FocusKeeperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FocusKeeper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FocusKeeper";
+			};
+			name = Release;
+		};
+		BABD68E22C51C81100515895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92FHBLRL4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manngabe.FocusKeeperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = FocusKeeper;
+			};
+			name = Debug;
+		};
+		BABD68E32C51C81100515895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P92FHBLRL4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manngabe.FocusKeeperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = FocusKeeper;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BABD68B12C51C80F00515895 /* Build configuration list for PBXProject "FocusKeeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BABD68D92C51C81100515895 /* Debug */,
+				BABD68DA2C51C81100515895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BABD68DB2C51C81100515895 /* Build configuration list for PBXNativeTarget "FocusKeeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BABD68DC2C51C81100515895 /* Debug */,
+				BABD68DD2C51C81100515895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BABD68DE2C51C81100515895 /* Build configuration list for PBXNativeTarget "FocusKeeperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BABD68DF2C51C81100515895 /* Debug */,
+				BABD68E02C51C81100515895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BABD68E12C51C81100515895 /* Build configuration list for PBXNativeTarget "FocusKeeperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BABD68E22C51C81100515895 /* Debug */,
+				BABD68E32C51C81100515895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BABD68AE2C51C80F00515895 /* Project object */;
+}
