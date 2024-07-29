@@ -1,20 +1,19 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  FocusKeeper
 //
-//  Created by Gabriel Mannheimer on 7/24/24.
+//  Created by Gabriel Mannheimer on 7/29/24.
 //
 
+import Foundation
 import SwiftUI
-import AppKit
 
-struct ContentView: View {
+struct MainView: View {
     
     @StateObject var appState : AppState
+    @State var startTimer: Bool = false
     
     var body: some View {
-        MainView(appState: appState)
-        /*
         VStack {
         
             HStack{
@@ -25,6 +24,32 @@ struct ContentView: View {
             }
             Toggle("Activate Focus", isOn: $appState.isActive)
                 .toggleStyle(.switch)
+                .padding()
+            if(startTimer){
+                HStack{
+                    Text("Hours")
+                    TextField("Timer(hrs)", value: $appState.timerHrs,format: .number)
+                        .textFieldStyle(.roundedBorder)
+                        .padding()
+                        .frame(width: 100)
+                    Text("Min")
+                    TextField("Timer(min)", value: $appState.timerMin,format: .number)
+                        .textFieldStyle(.roundedBorder)
+                        .padding()
+                        .frame(width: 100)
+                    Spacer()
+                    Button(action: {}){
+                        Image(systemName: "play")
+                    }
+                }
+            }
+            else{
+                Button(action:{
+                    startTimer = true
+                }){
+                    Text("Start Timer")
+                }
+            }
             List(appState.runningApps, id: \.bundleIdentifier){ app in
                 HStack{
                     if let icon = app.icon{
@@ -53,10 +78,10 @@ struct ContentView: View {
             }
         }
         .padding()
-         */
     }
 }
 
 #Preview {
-    ContentView(appState: AppState())
+    MainView(appState: AppState())
 }
+
