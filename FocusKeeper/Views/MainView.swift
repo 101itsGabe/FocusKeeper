@@ -12,6 +12,7 @@ struct MainView: View {
     
     @StateObject var appState : AppState
     @State var startTimer: Bool = false
+    @State var pullUpTimer: Bool = false
     
     var body: some View {
         VStack {
@@ -25,27 +26,34 @@ struct MainView: View {
             Toggle("Activate Focus", isOn: $appState.isActive)
                 .toggleStyle(.switch)
                 .padding()
-            if(startTimer){
-                HStack{
-                    Text("Hours")
-                    TextField("Timer(hrs)", value: $appState.timerHrs,format: .number)
-                        .textFieldStyle(.roundedBorder)
-                        .padding()
-                        .frame(width: 100)
-                    Text("Min")
-                    TextField("Timer(min)", value: $appState.timerMin,format: .number)
-                        .textFieldStyle(.roundedBorder)
-                        .padding()
-                        .frame(width: 100)
-                    Spacer()
-                    Button(action: {}){
-                        Image(systemName: "play")
+            if(pullUpTimer){
+                if (!startTimer){
+                    HStack{
+                        Text("Hours")
+                        TextField("Timer(hrs)", value: $appState.timerHrs,format: .number)
+                            .textFieldStyle(.roundedBorder)
+                            .padding()
+                            .frame(width: 100)
+                        Text("Min")
+                        TextField("Timer(min)", value: $appState.timerMin,format: .number)
+                            .textFieldStyle(.roundedBorder)
+                            .padding()
+                            .frame(width: 100)
+                        Button(action: {
+                            startTimer = true
+                            appState.startTimer()
+                        }){
+                            Image(systemName: "play")
+                        }
                     }
+                }
+                else{
+                    Text("\(appState.timerHrs):\(appState.timerMin): \(appState.timerSec)")
                 }
             }
             else{
                 Button(action:{
-                    startTimer = true
+                    pullUpTimer = true
                 }){
                     Text("Start Timer")
                 }
@@ -75,6 +83,11 @@ struct MainView: View {
             .onChange(of: appState.isActive){ newVal in
                 appState.isActive = newVal
                 appState.checkOverLay()
+            }
+            .onChange(of: appState.timer){
+                if(appState.timer == nil){
+                    pullUpTimer = false
+                }
             }
         }
         .padding()

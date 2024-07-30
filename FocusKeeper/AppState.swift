@@ -19,6 +19,8 @@ class AppState: NSObject, ObservableObject{
     @Published var focusGroups: [String] = []
     @Published var timerHrs: Int = 0
     @Published var timerMin: Int = 0
+    @Published var timerSec: Int = 0
+    @Published var timer: Timer?
     
     let importantAppIdentifiers = [
            "com.apple.Safari",  // Safari
@@ -125,5 +127,40 @@ class AppState: NSObject, ObservableObject{
         else{
             hideOverlay()
         }
+    }
+    
+    func startTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        if(timerMin > 0){
+            timerSec = 59
+            timerMin = timerMin - 1
+        }
+        isActive = true
+    }
+    
+    @objc func updateTime(){
+        if(timerSec <= 0 && timerMin <= 0 && timerHrs <= 0){
+            endTimer()
+        }
+        if(timerSec > 0){
+            timerSec -= 1
+        }
+        if(timerSec == 0 && timerMin > 0){
+                timerMin -= 1
+                timerSec = 59
+        }
+        if(timerSec == 0 && timerMin == 0 && timerHrs > 0){
+                timerHrs -= 1
+                timerMin = 59
+                timerSec = 59
+            }
+    }
+    
+    func endTimer(){
+        timer?.invalidate()
+        timer = nil
+        timerMin = 0
+        timerHrs = 0
+        timerSec = 0
     }
 }

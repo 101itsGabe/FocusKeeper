@@ -10,6 +10,17 @@ import SwiftUI
 
 struct MenuBarView: View{
     @ObservedObject var appState: AppState
+    var formattedHours: String {
+        return String(format: "%02d", appState.timerHrs)
+    }
+
+    var formattedMinutes: String {
+        return String(format: "%02d", appState.timerMin)
+    }
+
+    var formattedSeconds: String {
+        return String(format: "%02d", appState.timerSec)
+    }
     
     var body: some View{
         VStack{
@@ -17,17 +28,25 @@ struct MenuBarView: View{
             Toggle("Toggle Focus", isOn: $appState.isActive)
                 .toggleStyle(.switch)
                 .padding()
+            if(appState.timer != nil){
+                HStack{
+                    Text("\(formattedHours):\(formattedMinutes)")
+                    if(appState.timerHrs > 0){
+                        Text("Hours Left")
+                    }
+                    else{
+                        Text("Minutes Left")
+                    }
+                }
+            }
             Spacer()
             Text("Active Apps")
                 .bold()
             List(Array(appState.focusedApps.keys), id: \.self){ key in
                 HStack{
                     if let icon = appState.runningApps.first(where:{ $0.localizedName == key})?.icon{
-                        Image(nsImage: icon)
-                            .padding()
-                    }
+                        Image(nsImage: icon)                    }
                     Text(key)
-                        .padding()
                     Spacer()
                     Toggle("", isOn: Binding(
                         get:{appState.focusedApps[key] ?? false},
@@ -37,6 +56,11 @@ struct MenuBarView: View{
                 }
             }
             .padding()
+        }
+        .onChange(of: appState.isActive){
+            if(appState.isActive == false){
+                appState.endTimer()
+            }
         }
     }
 }
