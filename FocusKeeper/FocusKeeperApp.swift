@@ -39,7 +39,6 @@ struct Wrapper: View{
             }
         }
         .onChange(of: curList){
-            print("CURLIST HELp ME NIGGA")
         }
             
     }

@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA2948ED2C65459F000D89CE /* AnalyticsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2948EC2C65459F000D89CE /* AnalyticsPage.swift */; };
+		BA51E8422C629EFC0033EF49 /* apptics-config.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA51E8412C629EFC0033EF49 /* apptics-config.plist */; };
 		BA8B01B82C58279100BF5CC3 /* Menubarview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B01B72C58279100BF5CC3 /* Menubarview.swift */; };
 		BA8B01BA2C582F7300BF5CC3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B01B92C582F7300BF5CC3 /* MainView.swift */; };
+		BA8B01BC2C5934CA00BF5CC3 /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B01BB2C5934CA00BF5CC3 /* CreateGroupView.swift */; };
 		BABD68BA2C51C80F00515895 /* FocusKeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD68B92C51C80F00515895 /* FocusKeeperApp.swift */; };
 		BABD68BC2C51C80F00515895 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABD68BB2C51C80F00515895 /* ContentView.swift */; };
 		BABD68BE2C51C81100515895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BABD68BD2C51C81100515895 /* Assets.xcassets */; };
@@ -38,9 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA2948EC2C65459F000D89CE /* AnalyticsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPage.swift; sourceTree = "<group>"; };
+		BA51E8412C629EFC0033EF49 /* apptics-config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "apptics-config.plist"; path = "../../../Downloads/apptics-config.plist"; sourceTree = "<group>"; };
 		BA8B01B52C58238F00BF5CC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BA8B01B72C58279100BF5CC3 /* Menubarview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menubarview.swift; sourceTree = "<group>"; };
 		BA8B01B92C582F7300BF5CC3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		BA8B01BB2C5934CA00BF5CC3 /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
 		BABD68B62C51C80F00515895 /* FocusKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BABD68B92C51C80F00515895 /* FocusKeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusKeeperApp.swift; sourceTree = "<group>"; };
 		BABD68BB2C51C80F00515895 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,11 +87,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F20E792682A9587181E5125 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BA8B01B62C58277800BF5CC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				BA8B01B72C58279100BF5CC3 /* Menubarview.swift */,
 				BA8B01B92C582F7300BF5CC3 /* MainView.swift */,
+				BA8B01BB2C5934CA00BF5CC3 /* CreateGroupView.swift */,
+				BA2948EC2C65459F000D89CE /* AnalyticsPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -97,6 +112,7 @@
 				BABD68CA2C51C81100515895 /* FocusKeeperTests */,
 				BABD68D42C51C81100515895 /* FocusKeeperUITests */,
 				BABD68B72C51C80F00515895 /* Products */,
+				2F20E792682A9587181E5125 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +129,7 @@
 		BABD68B82C51C80F00515895 /* FocusKeeper */ = {
 			isa = PBXGroup;
 			children = (
+				BA51E8412C629EFC0033EF49 /* apptics-config.plist */,
 				BA8B01B62C58277800BF5CC3 /* Views */,
 				BA8B01B52C58238F00BF5CC3 /* Info.plist */,
 				BABD68B92C51C80F00515895 /* FocusKeeperApp.swift */,
@@ -256,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BABD68C12C51C81100515895 /* Preview Assets.xcassets in Resources */,
+				BA51E8422C629EFC0033EF49 /* apptics-config.plist in Resources */,
 				BABD68BE2C51C81100515895 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +302,9 @@
 				BABD68E72C56DCE400515895 /* OverlayWindow.swift in Sources */,
 				BA8B01BA2C582F7300BF5CC3 /* MainView.swift in Sources */,
 				BABD68E52C55872A00515895 /* AppState.swift in Sources */,
+				BA2948ED2C65459F000D89CE /* AnalyticsPage.swift in Sources */,
 				BA8B01B82C58279100BF5CC3 /* Menubarview.swift in Sources */,
+				BA8B01BC2C5934CA00BF5CC3 /* CreateGroupView.swift in Sources */,
 				BABD68BC2C51C80F00515895 /* ContentView.swift in Sources */,
 				BABD68BA2C51C80F00515895 /* FocusKeeperApp.swift in Sources */,
 			);
@@ -461,6 +481,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.manngabe.FocusKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -489,6 +510,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.manngabe.FocusKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
