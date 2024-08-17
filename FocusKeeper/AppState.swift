@@ -70,7 +70,9 @@ class AppState: NSObject, ObservableObject{
     @Published var focusedApps: [String: Bool] = [:]
     @Published var isActive: Bool = false
     @Published var canClick: Bool = false
+    
     @Published var BtnColor: Color = Color(red: 0.91, green: 0.51, blue: 0.15)
+    @Published var searchBarColor: Color = Color(red: 60/255, green: 60/255, blue: 60/255)
     
     
     @Published var timerHrs: Int = 0
@@ -111,7 +113,7 @@ class AppState: NSObject, ObservableObject{
            "com.apple.Preview", // Preview
            "com.apple.TextEdit", // TextEdit
            "com.apple.dt.Xcode", // Xcode
-           "com.apple.SwiftPlaygrounds", // Swift Playgrounds
+           "com.apple.PlaygroundsMac", // Swift Playgrounds
            "com.apple.findmy", // Find My
            "com.apple.Home", // Home
            "com.apple.voice-memos", // Voice Memos
@@ -144,18 +146,32 @@ class AppState: NSObject, ObservableObject{
                "com.apple.screenshot",        // Screenshot
                "com.apple.configurator",      // Apple Configurator
                "com.apple.remoteDesktop",     // Remote Desktop
-               "com.apple.quartzcomposer"     // Quartz Composer
+               "com.apple.quartzcomposer",     // Quartz Composer,
+               "com.apple.PreviewShell"
        ]
     
     override init(){
         super.init()
         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(handleAppChange(_:)), name: NSWorkspace.didActivateApplicationNotification, object: nil)
-        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(handleRunningApps), name: NSWorkspace.didActivateApplicationNotification, object: nil)
+        
+        NSWorkspace.shared.notificationCenter.addObserver(self,selector: #selector(handleRunningApps(_:)),name: NSWorkspace.didLaunchApplicationNotification, object: nil)
+        
+        NSWorkspace.shared.notificationCenter.addObserver(self,
+                                                          selector: #selector(handleRunningApps(_:)),
+                                                          name: NSWorkspace.didTerminateApplicationNotification,
+                                                          object: nil)
+        
         updatingCurApp()
     }
     
     deinit {
         NSWorkspace.shared.notificationCenter.removeObserver(self, name: NSWorkspace.didActivateApplicationNotification, object: nil)
+        
+        NSWorkspace.shared.notificationCenter.removeObserver(self, name:
+                                                                NSWorkspace.didLaunchApplicationNotification, object: nil)
+        
+        NSWorkspace.shared.notificationCenter.removeObserver(self, name: NSWorkspace.didTerminateApplicationNotification, object: nil)
+                                                            
         }
     
     func getApplications(){
@@ -171,6 +187,7 @@ class AppState: NSObject, ObservableObject{
     
 
     func getAllApplications() -> [MyAppInfo]{
+        print("Brother")
         let fileManager = FileManager.default
         let applicationsURLs = [URL(fileURLWithPath: "/Applications"), URL(fileURLWithPath: "/System/Applications")]
         var allAppsURL: [URL] = []
@@ -186,12 +203,14 @@ class AppState: NSObject, ObservableObject{
                     }
                 }
             }
+            
             for app in allAppsURL{
                 let icon = NSWorkspace.shared.icon(forFile: app.path)
                 let name = app.deletingPathExtension().lastPathComponent
                 let newApp = MyAppInfo(name: name, icon: icon)
                 allApps.append(newApp)
             }
+            
             
             for app in runningApps{
                 if let icon  = app.icon{
@@ -203,7 +222,7 @@ class AppState: NSObject, ObservableObject{
                     }
                 }
             }
-            
+             
             return allApps
             
         }
@@ -224,6 +243,9 @@ class AppState: NSObject, ObservableObject{
                 if(focusedApps.keys.contains(appName) || appName == "FocusKeeper"){
                     if(appName == "FocusKeeper" || focusedApps[appName] == true){
                         hideOverlay()
+                    }
+                    else{
+                        showOverlay()
                     }
                 }
                 else{
@@ -369,7 +391,12 @@ class AppState: NSObject, ObservableObject{
     //Focus Group JSON
     func saveGroup(group: FocusGroup){
         var groups = loadGroup() ?? []
-        groups.append(group)
+        if let index = groups.firstIndex(where: {$0.name == group.name}){
+            groups[index] = group
+        }
+        else{
+            groups.append(group)
+        }
         saveAllGroups(groups: groups)
     }
     

@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         if(appState.createGroupView){
-            CreateGroupView(appState: appState)
+            CreateGroupView(appState: appState, setGroup: appState.curGroupSelected)
         }
         else{
             MainView(appState: appState)

@@ -16,6 +16,7 @@ struct FocusKeeperApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(appState: appState)
+                .environment(\.colorScheme, .dark)
         }
         MenuBarExtra(
                     "App Menu Bar Extra", systemImage: "target")

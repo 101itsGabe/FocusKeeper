@@ -58,11 +58,21 @@ struct AnalyticsPage: View {
                 
                 Button(action:{dayChart = true}){
                     Text("Per Day")
+                        .font(.system(size: 16))
+                        .underline(dayChart)
+                        .foregroundStyle(dayChart ? appState.BtnColor : Color.white)
+                        .padding(10)
                 }
+                .buttonStyle(PlainButtonStyle())
                 
                 Button(action:{dayChart = false}){
                     Text("Per Session")
+                        .font(.system(size: 16))
+                        .underline(!dayChart)
+                        .foregroundStyle(!dayChart ? appState.BtnColor : Color.white)
+                        .padding(10)
                 }
+                .buttonStyle(PlainButtonStyle())
             }
             
             if(dayChart){
@@ -110,6 +120,7 @@ struct AnalyticsPage: View {
                                         .padding()
                                         .font(.system(size: 18))
                                         .background(
+                                            
                                             Circle()
                                                 .strokeBorder(appState.BtnColor, lineWidth: 2)
                                                 .opacity(Calendar.current.isDate(date, inSameDayAs: curDay) ? 1 : 0)
@@ -117,6 +128,8 @@ struct AnalyticsPage: View {
                                         .onTapGesture {
                                             selectedDay = date
                                         }
+
+                                        
                                 }
                             }
                         }
@@ -130,24 +143,37 @@ struct AnalyticsPage: View {
                 .onChange(of: selectedDay){
                     isDatePicker = false
                 }
-                HStack{
-                    Spacer()
-                    Text("By Min")
-                        .bold()
-                        .padding()
-                }
-                Chart{
-                    ForEach(appState.sessionsData, id:\.self){session in
-                        if let curDay = selectedDay{
-                            
-                            if(Calendar.current.isDate(session.startTime!, inSameDayAs: curDay)){
-                                LineMark(x: .value("Time (in Hrs)", session.startTime!), y: .value("Duration", session.inMinutes!))
+                
+                if let curDay = selectedDay{
+                    if(!appState.sessionsData.contains(where: {
+                        return Calendar.current.isDate($0.startTime!, inSameDayAs: curDay)
+                    })){
+                        VStack{
+                            Spacer()
+                            Text("No Sessions Today 🧑‍💻")
+                                .padding()
+                                .bold()
+                                .font(.system(size: 16))
+                            Spacer()
+                        }.frame(height: .infinity)
+                    }
+                    else{
+                        HStack{
+                            Spacer()
+                            Text("By Min")
+                                .bold()
+                                .padding()
+                        }
+                        Chart{
+                            ForEach(appState.sessionsData, id:\.self){session in
+                                if(Calendar.current.isDate(session.startTime!,inSameDayAs: curDay)){
+                                    LineMark(x: .value("Time (in Hrs)", session.startTime!), y: .value("Duration", session.inMinutes!))
+                                }
                             }
                         }
+                        .padding()
                     }
-                }
-                .padding()
-
+            }
             }
             else{
                 
@@ -184,8 +210,10 @@ struct AnalyticsPage: View {
                             .onHover(){hovering in
                                 if(hovering){
                                     dateHover = true
+                                    NSCursor.pointingHand.push()
                                 }else{
                                     dateHover = false
+                                    NSCursor.pop()
                                 }
                             }
                             .onTapGesture(){
@@ -220,11 +248,18 @@ struct AnalyticsPage: View {
                         .padding()
                         .font(.system(size: 14))
                 }
+                
+                Text("How many times you folded 😔")
                 if let appData = curSession?.openPerAppData{
                     if(appData.count <= 0){
-                        Spacer()
-                        Text("You didnt open anything 👏")
-                        Spacer()
+                        VStack{
+                            Spacer()
+                            Text("You didnt open anything 👏")
+                                .bold()
+                                .font(.system(size: 16))
+                            Spacer()
+                        }
+                        .frame(height: .infinity)
                     }
                     else{
                         Chart{

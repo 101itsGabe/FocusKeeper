@@ -15,6 +15,7 @@ struct CreateGroupView: View{
     @State var curGroup: [String] = []
     @State var allApps: [MyAppInfo] = []
     @State var searchApp: String = ""
+    @State var setGroup: FocusGroup?
     
     var body: some View{
         VStack{
@@ -35,14 +36,34 @@ struct CreateGroupView: View{
                 .frame(maxWidth: 400)
                 .font(.system(size: 14))
             Button(action: {
-                let curFocusGroup = FocusGroup.init(name: groupName, focusApps: curGroup, isActvie: false)
-                appState.focusGroups.append(curFocusGroup)
-                appState.saveGroup(group: curFocusGroup)
-                appState.createGroupView = false
+                if(setGroup == nil){
+                    setGroup = FocusGroup.init(name: groupName, focusApps: curGroup, isActvie: false)
+                    
+                }
+                else{
+                    setGroup?.name = groupName
+                    setGroup?.focusApps = curGroup
+                }
+                if let curSetGroup = setGroup{
+                    print(curSetGroup.focusApps)
+                    if let index = appState.focusGroups.firstIndex(where: { $0.name == curSetGroup.name }) {
+                        appState.focusGroups[index] = curSetGroup
+                    }
+                    else{
+                        appState.focusGroups.append(curSetGroup)
+                    }
+                    appState.saveGroup(group: curSetGroup)
+                    appState.createGroupView = false
+                }
             }){
                 Image(systemName: "folder.badge.plus")
                     .padding(3)
-                Text("Create Group")
+                if(setGroup == nil){
+                    Text("Create Group")
+                }
+                else{
+                    Text("Save Group")
+                }
             }
             VStack(spacing: 5){
                 Spacer(minLength: 3)
@@ -50,13 +71,14 @@ struct CreateGroupView: View{
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(.gray)
                         .padding(.leading, 5)
-                    TextField("Search", text: $searchApp)
+                    TextField("Search App", text: $searchApp)
+                        .textFieldStyle(PlainTextFieldStyle())
                         .font(.system(size: 14))
                     
                 }
                 .padding(5)
                 .textFieldStyle(.roundedBorder)
-                .background(Color(white: 0.3))
+                .background(appState.searchBarColor)
                 .cornerRadius(10)
                 .frame(maxWidth: 400)
                 
@@ -75,6 +97,7 @@ struct CreateGroupView: View{
                                     curGroup.append(app.name)
                                 }else{
                                     curGroup.removeAll{$0 == app.name}
+                                    print(curGroup)
                                 }
                             }))
                             
@@ -91,7 +114,15 @@ struct CreateGroupView: View{
                 .padding()
                 .onAppear(){
                     if(allApps.count <= 0 ){
-                        allApps = appState.getAllApplications()
+                        //let HELP = appState.getAllApplications()
+                        allApps = appState.allApps
+                    }
+                    if let paramGroup = setGroup{
+                        groupName = paramGroup.name
+                        curGroup = []
+                        for app in paramGroup.focusApps {
+                            curGroup.append(app)
+                        }
                     }
                 }
                 .cornerRadius(10)

@@ -135,6 +135,7 @@ struct MainView: View {
                     
                     Button(action: {
                         appState.createGroupView = true
+                        appState.curGroupSelected = nil
                     }){
                         Image(systemName:
                                 "square.grid.3x1.folder.fill.badge.plus")
@@ -229,11 +230,21 @@ struct MainView: View {
             }
             .padding()
             
-            //Running Apps List
+            //Running Apps List == 1
             if(tabsInt == 1){
-                TextField("Search App", text: $searchApp)
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
+                HStack{
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.gray)
+                        .padding(.leading, 5)
+                    TextField("Search App", text: $searchApp)
+                        .textFieldStyle(PlainTextFieldStyle()) // Use a plain style to remove the border
+                                .background(Color.clear)
+                                .font(.system(size: 14))
+                }
+                .padding(5)
+                .background(appState.searchBarColor)
+                .cornerRadius(10)
+                .frame(width: 400)
                 List(appState.runningApps, id: \.bundleIdentifier){ app in
                     if(app.localizedName!.lowercased().contains(searchApp.lowercased()) || searchApp == ""){
                         HStack{
@@ -273,7 +284,7 @@ struct MainView: View {
                 
             }
             
-            //Focus Groups List
+            //Focus Groups List == 2
             else if(tabsInt == 2){
                 if(appState.focusGroups.count > 0){
                     Text("Click A Group")}
@@ -295,23 +306,19 @@ struct MainView: View {
                             }
                             
                             Text(group.name)
+                                .padding()
                                 .onTapGesture {
                                     showApps[group.name, default: false].toggle()
                                 }
                                 .cornerRadius(10)
                                 .font(.system(size: 16))
                             
-                            Button(action:{}){
-                                Image(systemName: "pencil")
-                            }
-                            .padding()
-                            
                             Spacer()
                             Button(action: { appState.removeGroup(group: group) }) {
                                 Image(systemName: "trash.fill")
                             }
                             .padding()
-                        
+                            
                         }
                         .onHover { isHovering in
                             if isHovering {
@@ -327,34 +334,50 @@ struct MainView: View {
                         .background(hoverIndex == group.name ? Color.white.opacity(0.2) : Color.clear)
                         .cornerRadius(50)
                         if(showApps[group.name] == true){
-                            ForEach(group.focusApps, id: \.self){ app in
-                                HStack(alignment: .center, spacing: 8){
+                            VStack{
                                 HStack{
-                                    if let icon = appState.allApps.first(where: {$0.name == app})?.icon{
+                                    Button(action:{
+                                        appState.createGroupView = true
+                                        appState.curGroupSelected = group
+                                    }){
+                                        Image(systemName: "pencil")
+                                    }
+                                    .padding()
+                                    Spacer()
+                                }
+                                ForEach(group.focusApps, id: \.self){ app in
+                                    HStack(alignment: .center, spacing: 4){
                                         HStack{
-                                            Image(nsImage: icon)
-                                                .resizable()
-                                                .frame(width: 40, height: 40)
-
+                                            if let icon = appState.allApps.first(where: {$0.name == app})?.icon{
+                                                HStack{
+                                                    Image(nsImage: icon)
+                                                        .resizable()
+                                                        .frame(width: 40, height: 40)
+                                                    
+                                                }
+                                            }
+                                            else{
+                                                
+                                                Text("No Image")
+                                            }
+                                            Spacer()
+                                            HStack{
+                                                Text(app)
+                                                    .padding(.trailing)
+                                                Spacer()
+                                            }
+                                            
+                                            
                                         }
                                     }
-                                    else{
-                                        
-                                        Text("No Image")
-                                    }
-                                    Spacer()
-                                    HStack{
-                                        Text(app)
-                                            .padding(.trailing)
-                                        Spacer()
-                                    }
-                                        
-                                        
+                                    .frame(width: 200)
+                                    
                                 }
+                                .padding()
                             }
-                                .frame(width: 200)
-    
-                            }
+                            .background(Color.gray.opacity(0.1)) // Light gray background for the VStack
+                            .border(appState.BtnColor, width: 2) // Blue border around the VStack
+                            .cornerRadius(5) // Rounded corners for the VStack
                         }
                     }
                     .onTapGesture{
@@ -388,7 +411,7 @@ struct MainView: View {
             }
             
             
-            //Analytics List Tab
+            //Analytics List Tab == 3
             else if(tabsInt == 3){
                 if(appState.sessionsData.count <= 0){
                     Text("Go Do that hockey!")
@@ -403,6 +426,8 @@ struct MainView: View {
         .onAppear(){
             tabsInt = 1
             isTextApps = true
+            appState.getApplications()
+            appState.updatingCurApp()
             appState.sessionsData = appState.loadSessions() ?? []
             appState.allApps = appState.getAllApplications()
             //print(appState.sessionsData)
